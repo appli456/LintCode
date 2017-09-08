@@ -11,10 +11,10 @@ public:
     */
     int findPeak(vector<int> A) {
         // write your code here
-        int left = 1;
-        int right = A.size() - 2;
+        int left = 0;
+        int right = A.size() - 1;
         int mid;
-        while (left <= right)
+        while (left < right - 1)
         {
             mid = (left + right) / 2;
             if (A[mid] > A[mid - 1] && A[mid] > A[mid + 1]) {
@@ -28,6 +28,6 @@ public:
             }
         }
 
-        return -1;
+        return A[left] > A[right] ? left : right;
     }
 };
